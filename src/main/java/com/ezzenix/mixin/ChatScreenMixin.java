@@ -40,11 +40,11 @@ public class ChatScreenMixin {
 
         offsetY = modifiedAlpha * FADE_OFFSET * screenFactor;
 
-        context.getMatrices().translate(0, offsetY, 0);
+        context.getMatrices().translate(0, offsetY);
     }
 
     @Inject(method = "render", at = @At("TAIL"))
     private void renderEnd(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        context.getMatrices().translate(0, -offsetY, 0);
+        context.getMatrices().translate(0, -offsetY);
     }
 }
